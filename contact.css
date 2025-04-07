@@ -1,0 +1,794 @@
+/* Test flag to verify CSS loading */
+body::before {
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    opacity: 0;
+}
+
+/* Contact Section Styles */
+body {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    background-color: #121212; /* Dark background for better visibility */
+    color: #ffffff;
+}
+
+body.fade-in {
+    opacity: 1;
+}
+
+/* Background pattern for visual interest */
+.contact-section {
+    padding: 120px 50px 80px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(18, 18, 18, 0.95); /* Slightly transparent dark background */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add decorative elements */
+.contact-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(78, 115, 223, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: 0;
+    border-radius: 50%;
+}
+
+.contact-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(156, 39, 176, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: 0;
+    border-radius: 50%;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced header styling */
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.section-header h2 {
+    font-size: 3.2rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(to right, #4e73df, #9c27b0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.section-header::before {
+    content: "Get in Touch";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 5rem;
+    opacity: 0.03;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.section-underline {
+    height: 4px;
+    width: 100px;
+    background: linear-gradient(to right, #4e73df, #9c27b0);
+    margin: 10px auto 20px;
+    border-radius: 2px;
+    position: relative;
+}
+
+.section-underline::before,
+.section-underline::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 2px;
+    width: 30px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.section-underline::before {
+    left: -40px;
+}
+
+.section-underline::after {
+    right: -40px;
+}
+
+/* Balanced layout for the contact section */
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+    animation: appear 0.8s ease forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Enhanced card styling */
+.contact-info,
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.4),
+        inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add subtle gradient border on hover */
+.contact-info::before,
+.contact-form::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent, rgba(78, 115, 223, 0.5), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.contact-info:hover::before,
+.contact-form:hover::before {
+    opacity: 1;
+}
+
+.contact-info:hover,
+.contact-form:hover {
+    transform: translateY(-10px);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.5),
+        inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+/* Improved headings */
+.contact-info h3,
+.contact-form h3 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px;
+    font-weight: 700;
+}
+
+.contact-info h3::after,
+.contact-form h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, #4e73df, #9c27b0);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.contact-info:hover h3::after,
+.contact-form:hover h3::after {
+    width: 100px;
+}
+
+.contact-info p {
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+}
+
+/* Enhanced contact items with better icons */
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    transition: transform 0.4s ease, background 0.3s ease;
+    padding: 15px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(78, 115, 223, 0.1), rgba(156, 39, 176, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+}
+
+.contact-item:hover {
+    transform: translateX(10px);
+}
+
+.contact-item:hover::before {
+    opacity: 1;
+}
+
+/* Icon wrapper to hold both icon and connecting line */
+.icon-wrapper {
+    position: relative;
+    margin-right: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+/* Connecting line from icon to text */
+.icon-connect-line {
+    position: absolute;
+    top: 55px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 0;
+    background: linear-gradient(to bottom, #4e73df, transparent);
+    transition: height 0.3s ease;
+}
+
+.contact-item:hover .icon-connect-line {
+    height: 40px;
+}
+
+.contact-item .icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(78, 115, 223, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4e73df;
+    font-size: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 
+        0 5px 15px rgba(0, 0, 0, 0.2),
+        inset 0 1px 3px rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+/* Pulsating effect */
+.contact-item .icon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(78, 115, 223, 0.4);
+    opacity: 0;
+    z-index: -1;
+    transform: scale(0.8);
+    animation: none;
+    transition: opacity 0.3s ease;
+}
+
+.contact-item:hover .icon::after {
+    opacity: 1;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.7;
+    }
+    70% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+}
+
+.contact-item:hover .icon {
+    background: linear-gradient(135deg, #4e73df, #9c27b0);
+    color: white;
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 
+        0 10px 20px rgba(78, 115, 223, 0.4),
+        inset 0 1px 3px rgba(255, 255, 255, 0.2);
+}
+
+.contact-item .detail {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+}
+
+.contact-item .detail h4 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: #ffffff;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.contact-item:hover .detail h4 {
+    color: #4e73df;
+    transform: translateY(-2px);
+}
+
+.contact-item .detail p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.contact-item:hover .detail p {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* Enhanced social links with centering */
+.social-links-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin: 30px 0;
+    padding: 10px 0;
+    position: relative;
+}
+
+.social-links-contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+social-links-contact::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.3rem;
+    transition: all 0.4s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icon::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #4e73df, #9c27b0);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.social-icon i {
+    position: relative;
+    z-index: 1;
+}
+
+.social-icon:hover::before {
+    opacity: 1;
+}
+
+.social-icon:hover {
+    transform: translateY(-8px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Balanced form layout */
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.form-row .form-group {
+    margin-bottom: 0;
+    flex: 1;
+    width: 50%;
+}
+
+/* Redesigned input fields with consistent styling */
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.form-group:focus-within {
+    transform: translateY(-3px);
+    z-index: 3;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 18px 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced focus states */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #4e73df;
+    background: rgba(78, 115, 223, 0.05);
+    box-shadow: 
+        inset 0 2px 5px rgba(0, 0, 0, 0.1),
+        0 0 15px rgba(78, 115, 223, 0.2);
+}
+
+/* Improved floating labels */
+.form-group label {
+    position: absolute;
+    left: 20px;
+    top: 18px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+    pointer-events: none;
+    transition: 
+        transform 0.25s ease,
+        color 0.25s ease,
+        font-size 0.25s ease;
+    z-index: 2;
+    letter-spacing: 0.5px;
+}
+
+.form-group input:focus ~ label,
+.form-group textarea:focus ~ label,
+.form-group.has-value label {
+    transform: translateY(-26px) translateX(-5px);
+    font-size: 0.8rem;
+    color: #4e73df;
+    font-weight: 600;
+    background-color: rgba(18, 18, 18, 0.8);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+/* Balanced layout for textarea */
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+/* Input field icons - repositioned for balance */
+.form-group.with-icon .input-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+    z-index: 3;
+}
+
+.form-group.with-icon input:focus ~ .input-icon,
+.form-group.with-icon.has-value .input-icon {
+    color: #4e73df;
+}
+
+/* Fix focus-border for better visibility */
+.input-focus-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(to right, #4e73df, #9c27b0);
+    transition: width 0.3s ease;
+    z-index: 2;
+}
+
+.form-group:focus-within .input-focus-border {
+    width: 100%;
+}
+
+/* Fix character counter visibility */
+.char-counter {
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+    z-index: 3;
+    opacity: 0;
+}
+
+.form-group textarea:focus ~ .char-counter,
+.form-group.has-value .char-counter {
+    opacity: 1;
+}
+
+/* Enhanced submit button with improved design */
+.submit-container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.submit-btn {
+    background: linear-gradient(45deg, #4e73df, #9c27b0);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    width: 200px;
+    height: 56px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.submit-btn:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #9c27b0, #4e73df);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.submit-btn .btn-text {
+    position: relative;
+    z-index: 2;
+    display: block;
+    transition: all 0.3s ease;
+    transform: translateX(0);
+}
+
+.submit-btn .btn-icon {
+    position: relative;
+    z-index: 2;
+    width: 46px;
+    height: 46px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 15px 25px rgba(78, 115, 223, 0.4),
+        inset 0 2px 1px rgba(255, 255, 255, 0.3);
+}
+
+.submit-btn:hover:before {
+    opacity: 1;
+}
+
+.submit-btn:hover .btn-icon {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.submit-btn:active {
+    transform: translateY(-2px);
+}
+
+/* Form Feedback Improvements */
+.form-feedback {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+}
+
+.form-feedback.success,
+.form-feedback.error {
+    animation: fadeSlideUp 0.3s ease forwards;
+}
+
+@keyframes fadeSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+    .contact-content {
+        flex-direction: column;
+    }
+    
+    .contact-section {
+        padding: 100px 20px 60px;
+    }
+    
+    .contact-info, 
+    .contact-form {
+        width: 100%;
+        padding: 30px;
+    }
+    
+    .section-header h2 {
+        font-size: 2.5rem;
+    }
+    
+    .section-header::before {
+        font-size: 3.5rem;
+        top: -20px;
+    }
+    
+    .contact-item .icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .form-row .form-group {
+        width: 100%;
+    }
+}
+
+/* Add floating particles for visual interest */
+.floating-particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(78, 115, 223, 0.2);
+    pointer-events: none;
+    z-index: 0;
+    animation: float 15s infinite linear;
+}
+
+.floating-particle:nth-child(2n) {
+    background: rgba(156, 39, 176, 0.2);
+    animation-duration: 20s;
+}
+
+.floating-particle:nth-child(3n) {
+    width: 15px;
+    height: 15px;
+    animation-duration: 25s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Update navigation link in existing home.css */
+.side-navbar ul li.active a {
+    background: rgba(78, 115, 223, 0.2);
+    color: #4e73df;
+}
